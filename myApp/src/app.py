@@ -4,6 +4,7 @@ Created on Thu Nov  3 10:13:43 2022
 
 @author: Mario
 """
+from config import config
 from flask import Flask, jsonify, request
 from models import Models as model
 
@@ -1663,7 +1664,12 @@ main .recent-order a {
 
 </html>
             """
-
+def Page_Not_Found(error):
+    return '<h1>Page Not Found</h1>', 404
 
 if __name__ == '__main__':
+    app.config.from_object(config['development'])
+    # Blueprints
+    # Error
+    app.register_error_handler(404, Page_Not_Found)
     app.run()
