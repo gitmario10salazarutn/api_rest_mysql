@@ -4,7 +4,7 @@ Created on Thu Nov  3 10:13:43 2022
 
 @author: Mario
 """
-from config import config
+from Config import config
 from flask import Flask, jsonify, request
 from models import Models as model
 
